@@ -12,8 +12,8 @@ using WEB_REST_PRO.Data.Context;
 namespace WEB_REST_PRO.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230720210139_AddTabelaUser")]
-    partial class AddTabelaUser
+    [Migration("20230721211109_AddMidiaCategoriaAgenda")]
+    partial class AddMidiaCategoriaAgenda
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,58 @@ namespace WEB_REST_PRO.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("WEB_REST_PRO.Models.CategoriaAgenda", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Alteracao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("Inclusao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("UsuarioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CategoriaAgenda");
+                });
+
+            modelBuilder.Entity("WEB_REST_PRO.Models.Midia", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Alteracao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Arquivo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Inclusao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tipo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Midia");
+                });
 
             modelBuilder.Entity("WEB_REST_PRO.Models.Usuario", b =>
                 {

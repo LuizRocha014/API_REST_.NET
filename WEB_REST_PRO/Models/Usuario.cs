@@ -1,4 +1,4 @@
-﻿using WEB_REST_PRO.Data.Commons;
+﻿using WEB_REST_PRO.Models.Common;
 
 namespace WEB_REST_PRO.Models
 {

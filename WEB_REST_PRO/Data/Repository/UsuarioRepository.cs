@@ -1,7 +1,7 @@
 ﻿using LinqKit;
 using System;
 using System.Linq;
-using WEB_REST_PRO.Data;
+using WEB_REST_PRO.Data.Context;
 using WEB_REST_PRO.Models;
 
 public class UsuarioRepository : BaseRepository, IUsuarioRepository

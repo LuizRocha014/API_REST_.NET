@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using WEB_REST_PRO.Data;
+using WEB_REST_PRO.Data.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
