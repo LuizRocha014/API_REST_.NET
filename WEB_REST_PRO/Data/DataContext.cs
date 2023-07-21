@@ -15,5 +15,8 @@ namespace WEB_REST_PRO.Data
         public DbSet<Usuario> Usuario { get; set; }
 
 
+
+
+
     }
 }

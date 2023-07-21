@@ -9,6 +9,7 @@ builder.Services.AddDbContext<DataContext>(x =>
     x.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionMysql"));
 });
 
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
 
 
