@@ -15,6 +15,9 @@ namespace WEB_REST_PRO.Data.Context
         public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Midia> Midia { get; set; }
         public DbSet<CategoriaAgenda> CategoriaAgenda{ get; set; }
+        public DbSet<Agenda> Agenda{ get; set; }
+        public DbSet<Endereco> Endereco{ get; set; }
+        public DbSet<Cliente> Cliente{ get; set; }
 
 
 
