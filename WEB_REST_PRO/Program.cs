@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WEB_REST_PRO.Data.Context;
+using WEB_REST_PRO.Data.Interface;
+using WEB_REST_PRO.Data.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +12,13 @@ builder.Services.AddDbContext<DataContext>(x =>
 });
 
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IAgendaRepository, AgendaRepository>();
+builder.Services.AddScoped<IEnderecoRepository, EnderecoRepository>();
+builder.Services.AddScoped<IMidiaRepository, MidiaRepository>();
+builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+builder.Services.AddScoped<ICategoriaAgendaRepository, CategoriaAgendaRepository>();
+builder.Services.AddScoped<IAcessoRepository, AcessoRepository>();
+builder.Services.AddScoped<IUsuarioAcessoRepository, UsuarioAcessoRepository>();
 
 
 

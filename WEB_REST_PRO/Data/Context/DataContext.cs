@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WEB_REST_PRO.Models;
+using WEB_REST_PRO.Models.Common;
 
 namespace WEB_REST_PRO.Data.Context
 {
@@ -18,9 +19,8 @@ namespace WEB_REST_PRO.Data.Context
         public DbSet<Agenda> Agenda{ get; set; }
         public DbSet<Endereco> Endereco{ get; set; }
         public DbSet<Cliente> Cliente{ get; set; }
-
-
-
+        public DbSet<Acessos> Acessos { get; set; }
+        public DbSet<UsuarioAcesso> UsuarioAcesso { get; set; }
 
 
     }
