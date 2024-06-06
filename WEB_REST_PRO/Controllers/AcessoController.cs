@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components.Forms;
+﻿using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 using WEB_REST_PRO.Data.Interface;
 using WEB_REST_PRO.Models;
@@ -7,6 +8,7 @@ namespace WEB_REST_PRO.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    //["application/json"]
     public class AcessoController
     {
         private IAcessoRepository _acessoRepository;
@@ -33,12 +35,12 @@ namespace WEB_REST_PRO.Controllers
 
 
         [HttpGet]
-        [Route("GetAcessos/")]
-        public List<Acessos> GetAcessos()
+        [Route("GetAcessos")]
+        public IActionResult GetAcessos(Guid userId)
         {
-            try
+            try     
             {
-                return _acessoRepository.GetAcessos();
+                 return new JsonResult(_acessoRepository.GetAcessos());
             }
             catch (Exception)
             {

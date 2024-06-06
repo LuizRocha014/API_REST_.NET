@@ -18,7 +18,9 @@ builder.Services.AddScoped<IMidiaRepository, MidiaRepository>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<ICategoriaAgendaRepository, CategoriaAgendaRepository>();
 builder.Services.AddScoped<IAcessoRepository, AcessoRepository>();
-builder.Services.AddScoped<IUsuarioAcessoRepository, UsuarioAcessoRepository>();
+builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();
+builder.Services.AddScoped<IEstoqueRepository, EstoqueRepository>();
+builder.Services.AddScoped<IArquivoRepository, ArquivoRepository>();
 
 
 

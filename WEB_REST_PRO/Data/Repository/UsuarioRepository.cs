@@ -18,14 +18,13 @@ public class UsuarioRepository : BaseRepository, IUsuarioRepository
     {
         try
         {
-            var senhaHash = senha.GetHashCode();
             var usuario = new Usuario()
             {
                 Nome = nome,
                 Sobrenome = sobrenome,
                 UserName = userId.ToLower(),
                 Email = email,
-                Senha = senhaHash.ToString(),
+                Senha = senha,
                 Inclusao = DateTime.Now,
                 Alteracao = DateTime.Now,
                 
@@ -53,6 +52,23 @@ public class UsuarioRepository : BaseRepository, IUsuarioRepository
         {
 
             return new List<Usuario>();
+        }
+    }
+
+    public Usuario? login(string userName, string passWord)
+    {
+        try
+        {
+
+            var conta = _dataContext.Usuario.FirstOrDefault(x => x.UserName == userName && x.Senha == passWord);
+            if (conta == null) throw new Exception();
+                return conta;
+
+        }
+        catch (Exception)
+        {
+
+            return null;
         }
     }
 

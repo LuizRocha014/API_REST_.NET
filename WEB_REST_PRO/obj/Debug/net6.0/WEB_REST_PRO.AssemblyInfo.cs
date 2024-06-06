@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WEB_REST_PRO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b06f34b34b3a4674a1f7496e3f5fb4e6452d1ec0")]
 [assembly: System.Reflection.AssemblyProductAttribute("WEB_REST_PRO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WEB_REST_PRO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -11,7 +11,7 @@ namespace WEB_REST_PRO.Controllers
 
         public UsuarioController(IUsuarioRepository usuarioRepository)
         {
-               _usuarioRepository = usuarioRepository;
+            _usuarioRepository = usuarioRepository;
         }
         [HttpPost]
         [Route("AddUsuario/")]
@@ -19,7 +19,7 @@ namespace WEB_REST_PRO.Controllers
         {
             try
             {
-               return _usuarioRepository.AddUsuario(nome,sobrenome, userId, email, senha);
+                return _usuarioRepository.AddUsuario(nome, sobrenome, userId, email, senha);
             }
             catch (Exception)
             {
@@ -40,6 +40,24 @@ namespace WEB_REST_PRO.Controllers
             {
 
                 return new List<Usuario>();
+            }
+        }
+
+        [HttpGet]
+        [Route("login")]
+        public IActionResult login(string userName, string passWord)
+        {
+            try
+            {
+                var conta = _usuarioRepository.login(userName, passWord);
+                if(conta!= null)
+                return new JsonResult(conta);
+                else return new JsonResult(false);
+            }
+            catch (Exception)
+            {
+
+                return new JsonResult(false);
             }
         }
 

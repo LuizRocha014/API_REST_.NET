@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WEB_REST_PRO.Data.Context;
 
@@ -11,9 +12,11 @@ using WEB_REST_PRO.Data.Context;
 namespace WEB_REST_PRO.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240520232136_add")]
+    partial class add
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,31 +88,6 @@ namespace WEB_REST_PRO.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Agenda");
-                });
-
-            modelBuilder.Entity("WEB_REST_PRO.Models.Arquivo", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Alteracao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Base64Arquivo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Inclusao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Arquivo");
                 });
 
             modelBuilder.Entity("WEB_REST_PRO.Models.CategoriaAgenda", b =>
@@ -208,29 +186,6 @@ namespace WEB_REST_PRO.Migrations
                     b.ToTable("Endereco");
                 });
 
-            modelBuilder.Entity("WEB_REST_PRO.Models.Estoque", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Alteracao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("Inclusao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("ProdutoId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Quantidade")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Estoque");
-                });
-
             modelBuilder.Entity("WEB_REST_PRO.Models.Midia", b =>
                 {
                     b.Property<Guid>("Id")
@@ -257,46 +212,6 @@ namespace WEB_REST_PRO.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Midia");
-                });
-
-            modelBuilder.Entity("WEB_REST_PRO.Models.Produto", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Alteracao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid?>("ArquivoId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Codigo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Cor")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("Inclusao")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Marca")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Quantidade")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Produto");
                 });
 
             modelBuilder.Entity("WEB_REST_PRO.Models.Usuario", b =>
