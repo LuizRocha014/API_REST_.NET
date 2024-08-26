@@ -1,4 +1,5 @@
-﻿using WEB_REST_PRO.Models.Common;
+﻿
+using WEB_REST_PRO.Models.SmartStorege;
 
 namespace WEB_REST_PRO.Models
 {
