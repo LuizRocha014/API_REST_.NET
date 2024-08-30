@@ -10,43 +10,43 @@ namespace WEB_REST_PRO.Controllers
     public class UsuarioAcessoController
     {
 
-        private IUsuarioAcessoRepository _usuarioAcessoRepository;
-        public UsuarioAcessoController(IUsuarioAcessoRepository usuarioAcessoRepository)
-        {
-            _usuarioAcessoRepository = usuarioAcessoRepository;
+    //    private IUsuarioAcessoRepository _usuarioAcessoRepository;
+    //    public UsuarioAcessoController(IUsuarioAcessoRepository usuarioAcessoRepository)
+    //    {
+    //        _usuarioAcessoRepository = usuarioAcessoRepository;
             
-        }
+    //    }
 
-        [HttpPost]
-        [Route("AddUsuarioAcesso/")]
-        public ActionResult<bool> AddUsuarioAcesso(Guid usuarioId, Guid acessoId)
-        {
+    //    [HttpPost]
+    //    [Route("AddUsuarioAcesso/")]
+    //    public ActionResult<bool> AddUsuarioAcesso(Guid usuarioId, Guid acessoId)
+    //    {
 
-            try
-            {
-                return _usuarioAcessoRepository.AddUsuarioAcesso(usuarioId, acessoId);
-            }
-            catch (Exception)
-            {
+    //        try
+    //        {
+    //            return _usuarioAcessoRepository.AddUsuarioAcesso(usuarioId, acessoId);
+    //        }
+    //        catch (Exception)
+    //        {
 
-                return false;
-            }
-        }
+    //            return false;
+    //        }
+    //    }
 
-        [HttpGet]
-        [Route("GetUsuariosAcessos/")]
-        public ActionResult<List<UsuarioAcesso>> GetUsuariosAcessos()
-        {
+    //    [HttpGet]
+    //    [Route("GetUsuariosAcessos/")]
+    //    public ActionResult<List<UsuarioAcesso>> GetUsuariosAcessos()
+    //    {
 
-            try
-            {
-                return _usuarioAcessoRepository.GetUsuarioAcesso();
-            }
-            catch (Exception)
-            {
+    //        try
+    //        {
+    //            return _usuarioAcessoRepository.GetUsuarioAcesso();
+    //        }
+    //        catch (Exception)
+    //        {
 
-                return null;
-            }
-        }
+    //            return null;
+    //        }
+    //    }
     }
 }
