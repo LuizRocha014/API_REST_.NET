@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using WEB_REST_PRO.Models.Common;
 
-public class Supplier
+public class Supplier : Core
 {
     public string Name { get; set; }
 
