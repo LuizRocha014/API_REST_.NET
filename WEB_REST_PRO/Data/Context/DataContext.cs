@@ -35,7 +35,7 @@ namespace WEB_REST_PRO.Data.Context
         public DbSet<RolePermission> RolePermission { get; set; }
         public DbSet<Shop> Shop { get; set; }
         public DbSet<ShopUser> ShopUser { get; set; }
-        public DbSet<Transaction> Transaction { get; set; }
+        //public DbSet<Transaction> Transaction { get; set; }
         public DbSet<UserPermission> UserPermission { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<Supplier> Supplier { get; set; }
