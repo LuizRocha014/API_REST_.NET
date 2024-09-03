@@ -39,6 +39,7 @@ namespace WEB_REST_PRO.Data.Context
         public DbSet<UserPermission> UserPermission { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<Supplier> Supplier { get; set; }
+        public DbSet<ShopProduct> ShopProduct { get; set; }
 
 
 

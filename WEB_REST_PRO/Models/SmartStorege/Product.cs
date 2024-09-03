@@ -16,10 +16,16 @@ public class Product : Core
 
     [ForeignKey("Supplier")]
     public Guid SupplierId { get; set; }
-    
+
     public double PurchasePrice { get; set; }
 
     public int MinimumAmount { get; set; }
+
+    public int? Quantity { get; set; }
+
+    public double? Price { get; set; }
+
+    public double? TotalValue { get; set; }
 
     public DateTime? ExpiryDate { get; set; }
 
