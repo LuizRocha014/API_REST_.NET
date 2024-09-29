@@ -8,6 +8,7 @@ namespace WEB_REST_PRO.Models.SmartStorege
         public Guid RoleId { get; set; } // Foreign key referencing Roles.Id
 
         public string Name { get; set; } // nvarchar(max)
+        public string UserName { get; set; } // nvarchar(max)
 
         public string Email { get; set; } // nvarchar
 

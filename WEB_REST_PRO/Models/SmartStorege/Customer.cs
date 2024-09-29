@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using WEB_REST_PRO.Models.Common;
+using WEB_REST_PRO.Models.SmartStorege;
 
 public class Customer : Core
 {

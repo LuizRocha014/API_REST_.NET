@@ -4,11 +4,30 @@ using WEB_REST_PRO.Data.Interface.SmartStorege;
 
 namespace WEB_REST_PRO.Data.Repository.SmartStorege
 {
-	public class CategoryRepository : BaseRepository, ICategoryRepository
-	{
-		public CategoryRepository(DataContext context) : base(context)
-		{
-		}
-	}
+    public class CategoryRepository : BaseRepository, ICategoryRepository
+    {
+        private readonly DataContext _dataContext;
+        public CategoryRepository(DataContext context) : base(context)
+        {
+            _dataContext = context;
+        }
+        public List<Category>? GetAllCategory(int pageNumber, int pageSize)
+        {
+            try
+            {
+                return _dataContext.Category
+                    .Skip((pageNumber - 1) * pageSize)
+                    .Take(pageSize)
+                    .ToList();
+
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+        }
+
+    }
 }
 
