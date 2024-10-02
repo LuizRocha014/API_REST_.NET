@@ -39,12 +39,12 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
                 if (user != null)
                 {
                     var userExist = _dataContext.User.FirstOrDefault(x => x.UserName == user!.UserName);
-                    if (userExist != null)
+                    if (userExist == null)
                     {
-                        user.Password = passWordHash(userExist.Password);   
+                        user.Password = passWordHash(user.Password);   
                         _dataContext.Add(user);
                         _dataContext.SaveChanges();
-                      var retorno = _dataContext.User.FirstOrDefault(x=>x.Id == userExist.Id);
+                      var retorno = _dataContext.User.FirstOrDefault(x=>x.Id == user.Id);
                         return retorno!= null ?true : false;
                     }
                 }
