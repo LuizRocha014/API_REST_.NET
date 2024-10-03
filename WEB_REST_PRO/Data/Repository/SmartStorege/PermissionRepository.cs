@@ -13,11 +13,11 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
             _dataContext = dataContext;
         }
 
-       public IEnumerable? GetAllPermission()
+       public IEnumerable? GetAllPermission(DateTime? ultimaAtt)
         {
 			try
 			{
-				return _dataContext.Permission;
+				return _dataContext.Permission.Where(x=> (ultimaAtt!= null ? x.CreatedAt>= ultimaAtt : x.Active == true));
 			}
 			catch (Exception)
 			{
