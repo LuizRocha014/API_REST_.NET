@@ -18,7 +18,7 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
 
 			try
 			{
-				return _dataContext.UserPermission.Where(x => x.UsuarioId == userId && (ultData != null ? x.CreatedAt >= ultData : x.Active == true));
+				return _dataContext.UserPermission.Where(x => x.UsuarioId == userId && (ultData != null ? x.UpdatedAt <= ultData : x.Active == true));
 
             }
 			catch (Exception)

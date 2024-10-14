@@ -12,6 +12,8 @@ public class ShopProduct : Core
 
     [ForeignKey("Shop")]
     public Guid ShopId { get; set; }
+    [ForeignKey("User")]
+    public Guid UserId { get; set; }
 
     public int TotalAmount { get; set; }
 
@@ -20,5 +22,6 @@ public class ShopProduct : Core
     public virtual Product Product { get; set; }
 
     public virtual Shop Shop { get; set; }
+    public virtual User User { get; set; }
 
 }

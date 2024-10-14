@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using LinqKit;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Security.Cryptography;
 using WEB_REST_PRO.Data.Context;
@@ -16,16 +18,25 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
         }
 
 
-        public  User? login(string username, string password)
+        public User? login(string username, string password)
         {
             try
             {
                 var hash = passWordHash(password);
                 var retorno = _dataContext.User.FirstOrDefault(x => x.UserName == username && x.Password == hash);
 
+                if (retorno != null)
+                {
+                  var listAcessos =  _dataContext.UserPermission.Include(x => x.Permission).Where(e => e.UsuarioId == retorno.Id);
+                    if (listAcessos.Any(x => x.Permission.Name.Contains("AppPermission")))
+                        return retorno;
+                    else
+                        return null;
+
+                }
                 return retorno ?? null;
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
 
                 return null;
@@ -41,11 +52,11 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
                     var userExist = _dataContext.User.FirstOrDefault(x => x.UserName == user!.UserName);
                     if (userExist == null)
                     {
-                        user.Password = passWordHash(user.Password);   
+                        user.Password = passWordHash(user.Password);
                         _dataContext.Add(user);
                         _dataContext.SaveChanges();
-                      var retorno = _dataContext.User.FirstOrDefault(x=>x.Id == user.Id);
-                        return retorno!= null ?true : false;
+                        var retorno = _dataContext.User.FirstOrDefault(x => x.Id == user.Id);
+                        return retorno != null ? true : false;
                     }
                 }
                 return false;

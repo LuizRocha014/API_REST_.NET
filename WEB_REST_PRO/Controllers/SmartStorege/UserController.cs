@@ -21,7 +21,8 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
         {
             try
             {
-                return new JsonResult(_userRepository.login(userName,passWord));
+                var retorno = _userRepository.login(userName, passWord);
+                return new JsonResult(retorno);
             }
             catch (Exception)
             {

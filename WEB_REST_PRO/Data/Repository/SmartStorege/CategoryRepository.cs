@@ -11,14 +11,11 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
         {
             _dataContext = context;
         }
-        public List<Category>? GetAllCategory(int pageNumber, int pageSize)
+        public List<Category>? GetAllCategory()
         {
             try
             {
-                return _dataContext.Category
-                    .Skip((pageNumber - 1) * pageSize)
-                    .Take(pageSize)
-                    .ToList();
+                return _dataContext.Category.ToList();
 
             }
             catch (Exception ex)

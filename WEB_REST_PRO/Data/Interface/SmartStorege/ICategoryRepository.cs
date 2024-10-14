@@ -3,7 +3,7 @@ namespace WEB_REST_PRO.Data.Interface.SmartStorege
 {
     public interface ICategoryRepository : IBaseRepository
     {
-        public List<Category>? GetAllCategory(int pageNumber, int pageSize);
+        public List<Category>? GetAllCategory();
 
     }
 }

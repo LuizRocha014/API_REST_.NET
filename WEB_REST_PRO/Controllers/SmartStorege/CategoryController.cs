@@ -16,11 +16,11 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
 
         [Route("GetAll")]
         [HttpGet]
-        public IActionResult GetAllCategory(int page, int pageSize)
+        public IActionResult GetAllCategory()
         {
             try
             {
-                return new JsonResult(_categoryRepository.GetAllCategory(page,pageSize));
+                return new JsonResult(_categoryRepository.GetAllCategory());
             }
             catch (Exception)
             {
