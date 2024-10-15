@@ -16,10 +16,6 @@ public class ShopUser : Core
 
     public bool UserMainShop { get; set; }
 
-    public DateTime CreatedAt { get; set; }
-
-    public DateTime UpdatedAt { get; set; }
-
     public virtual User User { get; set; }
 
     public virtual Shop Shop { get; set; }

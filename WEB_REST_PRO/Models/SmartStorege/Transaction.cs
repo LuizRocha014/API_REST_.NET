@@ -18,9 +18,9 @@ public class Transaction : Core
     [ForeignKey("Product")]
     public Guid ProductId { get; set; }
 
-    public Guid TargetCompany { get; set; }
+    public Guid? TargetCompany { get; set; }
 
-    public Guid OriginCompany { get; set; }
+    public Guid? OriginCompany { get; set; }
 
     [ForeignKey("User")]
     public Guid UserId { get; set; }
