@@ -3,24 +3,23 @@ using WEB_REST_PRO.Data.Interface.SmartStorege;
 
 namespace WEB_REST_PRO.Controllers.SmartStorege
 {
-
     [ApiController]
     [Route("api/[controller]")]
-    public class ShopUserController
+    public class ShopController
     {
-        private IShopUserRepository _iShopRepository;
-        public ShopUserController(IShopUserRepository iShopRepository)
-        {
-            _iShopRepository = iShopRepository;
-        }
+        private IShopRepository _shopRepository;
 
-        [Route("GetAll")]
-        [HttpGet]
-        public IActionResult getAllShopUser (Guid userId, DateTime? ultDate)
+        public ShopController(IShopRepository shopRepository)
         {
+            _shopRepository = shopRepository;
+        }
+        [Route("AddNewShop")]
+        [HttpPost]
+        public IActionResult AddNewShop([FromBody] Shop shop) {
+
             try
             {
-                var retorno  = _iShopRepository.GetAll(userId, ultDate);
+                var retorno = _shopRepository.addShop(shop);
                 return new JsonResult(retorno);
             }
             catch (Exception)

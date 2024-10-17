@@ -11,6 +11,28 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
 		{
 			_dataContext = dataContext;
 		}
-	}
+
+        public Company? AddCompany(Company shop)
+        {
+            try
+            {
+                var existEntity = _dataContext.Company.FirstOrDefault(x => x.Id == shop.Id);
+                if (existEntity == null)
+                {
+                    _dataContext.Company.Add(shop);
+                    _dataContext.SaveChanges();
+                }
+                var newEntity = _dataContext.Company.FirstOrDefault(x => x.Id == shop.Id);
+                return newEntity;
+
+
+            }
+            catch (Exception w)
+            {
+
+                return null;
+            }
+        }
+    }
 }
 

@@ -16,5 +16,5 @@ public class Shop : Core
 
     public string Location { get; set; }
 
-    public virtual Company Company { get; set; }
+    public virtual Company? Company { get; set; }
 }

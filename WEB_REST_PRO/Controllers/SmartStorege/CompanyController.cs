@@ -4,24 +4,23 @@ using WEB_REST_PRO.Data.Repository.SmartStorege;
 
 namespace WEB_REST_PRO.Controllers.SmartStorege
 {
-
     [ApiController]
     [Route("api/[controller]")]
-    public class ShopProductController
+    public class CompanyController
     {
-        private IShopProductRepository _shopProductRepository;
-        public ShopProductController(IShopProductRepository shopProductRepository)
+        private ICompanyRepository _companyRepository;
+        public CompanyController(ICompanyRepository companyRepository)
         {
-            _shopProductRepository = shopProductRepository;
+            _companyRepository = companyRepository;
         }
 
-        [Route("GetAll")]
-        [HttpGet]
-        public IActionResult getAllShopProduct(Guid userId, DateTime? ultDate)
+        [Route("AddCompany")]
+        [HttpPost]
+        public IActionResult AddCompany(Company company)
         {
             try
             {
-                var retorno = _shopProductRepository.GetAll(userId, ultDate);
+                var retorno = _companyRepository.AddCompany(company);
                 return new JsonResult(retorno);
             }
             catch (Exception)
@@ -32,3 +31,4 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
         }
     }
 }
+
