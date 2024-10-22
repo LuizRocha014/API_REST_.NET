@@ -61,7 +61,7 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
                 }
                 return false;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
                 return false;

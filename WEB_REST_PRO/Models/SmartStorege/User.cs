@@ -17,7 +17,7 @@ namespace WEB_REST_PRO.Models.SmartStorege
         public string Password { get; set; } // nvarchar(max)
 
         public string RememberToken { get; set; } // nvarchar(max)
-        public virtual Role Role { get; set; }
+        public virtual Role? Role { get; set; }
     }
 }
 
