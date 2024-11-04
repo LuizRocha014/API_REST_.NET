@@ -12,8 +12,8 @@ using WEB_REST_PRO.Data.Context;
 namespace WEB_REST_PRO.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241101014615_addtabledas")]
-    partial class addtabledas
+    [Migration("20241102221906_codigoVenda")]
+    partial class codigoVenda
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -580,6 +580,10 @@ namespace WEB_REST_PRO.Migrations
                     b.Property<double>("Valor")
                         .HasColumnType("float");
 
+                    b.Property<string>("codigoVenda")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Sale");
@@ -633,7 +637,10 @@ namespace WEB_REST_PRO.Migrations
                     b.Property<string>("Note")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("OriginCompany")
+                    b.Property<int>("NumberProd")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("OriginCompanyId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("PaymentMethod")
@@ -648,7 +655,7 @@ namespace WEB_REST_PRO.Migrations
                     b.Property<Guid?>("SupplierId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("TargetCompany")
+                    b.Property<Guid?>("TargetCompanyId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Type")
@@ -662,7 +669,7 @@ namespace WEB_REST_PRO.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Transferencia");
+                    b.ToTable("Transaction");
                 });
 
             modelBuilder.Entity("WEB_REST_PRO.Models.SmartStorege.User", b =>
