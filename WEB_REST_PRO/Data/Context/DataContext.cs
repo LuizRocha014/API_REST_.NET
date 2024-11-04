@@ -13,17 +13,6 @@ namespace WEB_REST_PRO.Data.Context
         {
 
         }
-
-        //public DbSet<Usuario> Usuario { get; set; }
-        //public DbSet<Midia> Midia { get; set; }
-        //public DbSet<CategoriaAgenda> CategoriaAgenda{ get; set; }
-        //public DbSet<Agenda> Agenda{ get; set; }
-        //public DbSet<Endereco> Endereco{ get; set; }
-        //public DbSet<Cliente> Cliente{ get; set; }
-        //public DbSet<Acessos> Acessos { get; set; }
-        //public DbSet<UsuarioAcesso> UsuarioAcesso { get; set; }
-        //public DbSet<Produto> Produto { get; set; }
-        //public DbSet<Estoque> Estoque { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Company> Company { get; set; }
         public DbSet<Customer> Customer { get; set; }
@@ -40,6 +29,9 @@ namespace WEB_REST_PRO.Data.Context
         public DbSet<User> User { get; set; }
         public DbSet<Supplier> Supplier { get; set; }
         public DbSet<ShopProduct> ShopProduct { get; set; }
+        public DbSet<Sale> Sale { get; set; }
+       // public DbSet<Transactions> Transaction { get; set; }
+
 
 
 

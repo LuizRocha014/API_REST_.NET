@@ -4,6 +4,9 @@
     {
         public double Valor { get; set; }
 
+        public string CodigoVenda { get; set; }
+        public double? Desconto { get; set; }
+
 
     }
 }

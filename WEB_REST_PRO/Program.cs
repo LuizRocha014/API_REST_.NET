@@ -37,6 +37,7 @@ builder.Services.AddScoped<IUserPermissionRepository, UserPermissionsRepository>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<IShopCostumerRepository, ShopCostumerRepository>();
+builder.Services.AddScoped<ISaleRepository, SaleRepository>();
 
 
 

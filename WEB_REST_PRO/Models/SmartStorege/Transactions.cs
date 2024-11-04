@@ -10,6 +10,7 @@
 
         public Guid ProductId { get; set; }
         public Guid SaleId { get; set; }
+        public int NumberProd { get; set; }
 
         public Guid? TargetCompanyId { get; set; }
 
