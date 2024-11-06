@@ -27,7 +27,7 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
             }
         }
 
-        public List<string> addCostumer(List<ShopProduct> listCustomer)
+        public List<string> AddShopProduct(List<ShopProduct> listCustomer)
         {
             List<string> listRetorno = listCustomer.Select(obj => obj.Id.ToString()).ToList();
             try

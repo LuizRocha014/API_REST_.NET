@@ -6,6 +6,8 @@ namespace WEB_REST_PRO.Data.Interface.SmartStorege
 	{
         public User? login(string username, string password);
         public bool addLogin(User? user);
+        public List<string> AddShopProduct(List<User> listCustomer);
+        public List<User> GetAllPermission(DateTime? ultimaAtt);
 
     }
 }

@@ -4,10 +4,10 @@ using WEB_REST_PRO.Data.Interface.SmartStorege;
 
 namespace WEB_REST_PRO.Data.Repository.SmartStorege
 {
-	public class SaleRepository : BaseRepository, ISaleRepository
+	public class FileRepository : BaseRepository, IFileRepository
     {
         private readonly DataContext _dataContext;
-        public SaleRepository(DataContext dataContext): base(dataContext)
+        public FileRepository(DataContext dataContext): base(dataContext)
 		{
             _dataContext = dataContext;
         }

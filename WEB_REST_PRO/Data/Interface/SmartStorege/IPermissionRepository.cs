@@ -4,7 +4,8 @@ namespace WEB_REST_PRO.Data.Interface.SmartStorege
 {
 	public interface IPermissionRepository : IBaseRepository
 	{
-        public IEnumerable? GetAllPermission(DateTime? ultimaAtt);
+        public List<Permission> GetAllPermission(DateTime? ultimaAtt);
+        public List<string> AddShopProduct(List<Permission> listCustomer);
 
     }
 }
