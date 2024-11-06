@@ -24,7 +24,7 @@ builder.Services.AddDbContext<DataContext>(x =>
 //builder.Services.AddScoped<IEstoqueRepository, EstoqueRepository>();
 builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
 builder.Services.AddScoped<ICustomersRepository, CustumerRepository>();
-builder.Services.AddScoped<IFileRepository, FileRepositoy>();
+builder.Services.AddScoped<IFileRepository, FileRepository>();
 builder.Services.AddScoped<IPermissionRepository, PermissionRepository>();
 builder.Services.AddScoped<IProductFileRepository, ProductFileRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
