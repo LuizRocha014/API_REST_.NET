@@ -37,8 +37,8 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
             try
             {
 
-
-                return new JsonResult(_productRepository.AddShopProduct(listCustomer));
+                var retorno = _productRepository.AddShopProduct(listCustomer);
+                return new JsonResult(retorno);
             }
             catch (Exception)
             {
