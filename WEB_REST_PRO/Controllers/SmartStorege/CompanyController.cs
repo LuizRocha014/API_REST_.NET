@@ -29,6 +29,36 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
                 return new JsonResult(false);
             }
         }
+        [Route("PostAll")]
+        [HttpPost]
+        public IActionResult PostAll([FromBody] List<Company> listCustomer)
+        {
+            try
+            {
+
+
+                return new JsonResult(_companyRepository.AddCompanyList(listCustomer));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        [Route("GetAll")]
+        [HttpGet]
+        public IActionResult GetAllCategory(DateTime? ultDate)
+        {
+            try
+            {
+                return new JsonResult(_companyRepository.GetAllCategory(ultDate));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }
 

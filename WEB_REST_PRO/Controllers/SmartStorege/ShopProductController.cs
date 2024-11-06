@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WEB_REST_PRO.Data.Interface.SmartStorege;
 using WEB_REST_PRO.Data.Repository.SmartStorege;
+using WEB_REST_PRO.Models.SmartStorege;
 
 namespace WEB_REST_PRO.Controllers.SmartStorege
 {
@@ -28,6 +29,23 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
             {
 
                 return new JsonResult(false);
+            }
+        }
+
+        [Route("PostAll")]
+        [HttpPost]
+        public IActionResult PostAll([FromBody] List<ShopProduct> listCustomer)
+        {
+            try
+            {
+
+
+                return new JsonResult(_shopProductRepository.AddShopProduct(listCustomer));
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

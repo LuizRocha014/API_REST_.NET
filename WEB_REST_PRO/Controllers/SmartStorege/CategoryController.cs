@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WEB_REST_PRO.Data.Context;
 using WEB_REST_PRO.Data.Interface.SmartStorege;
 using WEB_REST_PRO.Data.Repository.SmartStorege;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace WEB_REST_PRO.Controllers.SmartStorege
 {
@@ -16,11 +18,11 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
 
         [Route("GetAll")]
         [HttpGet]
-        public IActionResult GetAllCategory()
+        public IActionResult GetAllCategory(DateTime? ultDate)
         {
             try
             {
-                return new JsonResult(_categoryRepository.GetAllCategory());
+                return new JsonResult(_categoryRepository.GetAllCategory(ultDate));
             }
             catch (Exception)
             {
@@ -28,5 +30,38 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
                 throw;
             }
         }
+        [Route("PostAll")]
+        [HttpPost]
+        public IActionResult PostAll([FromBody] List<Category> listCustomer)
+        {
+            try
+            {
+
+
+                return new JsonResult(_categoryRepository.Add(listCustomer));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        [Route("GetAllId")]
+        [HttpGet]
+        public IActionResult GetAll( DateTime? ultDate)
+        {
+            try
+            {
+                return new JsonResult(_categoryRepository.GetAllCategory(ultDate));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+
     }
 }
