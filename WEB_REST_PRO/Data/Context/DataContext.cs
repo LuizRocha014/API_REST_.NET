@@ -30,7 +30,7 @@ namespace WEB_REST_PRO.Data.Context
         public DbSet<Supplier> Supplier { get; set; }
         public DbSet<ShopProduct> ShopProduct { get; set; }
         public DbSet<Sale> Sale { get; set; }
-       // public DbSet<Transactions> Transaction { get; set; }
+        public DbSet<Transactions> Transactions { get; set; }
 
 
 
