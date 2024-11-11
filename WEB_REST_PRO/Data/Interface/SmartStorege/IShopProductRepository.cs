@@ -2,7 +2,8 @@
 {
     public interface IShopProductRepository : IBaseRepository
     {
-        List<ShopProduct> GetAll(Guid userId, DateTime? ultDate);
+        List<ShopProduct> GetAll(DateTime? ultDate);
+        List<ShopProduct> GetAllId(Guid userId, DateTime? ultDate);
         public List<string> AddShopProduct(List<ShopProduct> listCustomer);
     }
 }

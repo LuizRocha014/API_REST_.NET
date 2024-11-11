@@ -15,13 +15,28 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
 
         [HttpGet]
         [Route("GetAll")]
-        public IActionResult GetAll(Guid userId, DateTime? ultData)
+        public IActionResult GetAll(DateTime? ultData)
+        {
+            try
+            {
+                return new JsonResult(_userPermissionRepository.GetAll(ultData));
+            }
+            catch(Exception ) 
+            {
+                return new JsonResult(null);
+            }
+
+        }
+
+        [HttpGet]
+        [Route("GetAllId")]
+        public IActionResult GetAllId(Guid userId, DateTime? ultData)
         {
             try
             {
                 return new JsonResult(_userPermissionRepository.GetAllUserId(userId, ultData));
             }
-            catch(Exception ) 
+            catch (Exception)
             {
                 return new JsonResult(null);
             }

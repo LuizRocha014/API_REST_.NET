@@ -6,27 +6,41 @@ using WEB_REST_PRO.Data.Interface.SmartStorege;
 
 namespace WEB_REST_PRO.Data.Repository.SmartStorege
 {
-	public class UserPermissionsRepository: BaseRepository, IUserPermissionRepository
+    public class UserPermissionsRepository : BaseRepository, IUserPermissionRepository
     {
         private readonly DataContext _dataContext;
         public UserPermissionsRepository(DataContext context) : base(context)
-		{
+        {
             _dataContext = context;
         }
 
-        public IEnumerable? GetAllUserId (Guid userId, DateTime? ultData)
+        public List<UserPermission>? GetAllUserId(Guid userId, DateTime? ultData)
         {
 
-			try
-			{
-				return _dataContext.UserPermission.Where(x => x.UsuarioId == userId && (ultData != null ? x.UpdatedAt <= ultData : x.Active == true));
+            try
+            {
+                return _dataContext.UserPermission.Where(x => x.UsuarioId == userId && (ultData != null ? x.UpdatedAt <= ultData : x.Active == true)).ToList();
 
             }
-			catch (Exception)
-			{
+            catch (Exception)
+            {
 
-				return null;
-			}
+                return null;
+            }
+        }
+        public List<UserPermission>? GetAll(DateTime? ultData)
+        {
+
+            try
+            {
+                return _dataContext.UserPermission.Where(x => (ultData != null ? x.UpdatedAt <= ultData : x.Active == true)).ToList();
+
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
 
         public List<UserPermission> GetAllPermission(DateTime? ultimaAtt)

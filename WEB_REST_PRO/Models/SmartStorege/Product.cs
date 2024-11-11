@@ -6,16 +6,15 @@ using WEB_REST_PRO.Models.SmartStorege;
 
 public class Product : Core
 {
-
-    [ForeignKey("Category")]
     public Guid CategoryId { get; set; }
 
     public string Sku { get; set; }
+    public string? CodProduct { get; set; }
+    public Guid Storedlocation { get; set; }
 
     public string Brand { get; set; }
 
-    [ForeignKey("Supplier")]
-    public Guid SupplierId { get; set; }
+    public Guid? SupplierId { get; set; }
 
     public double PurchasePrice { get; set; }
 
@@ -33,7 +32,4 @@ public class Product : Core
 
     public string AdditionalInfo { get; set; }
 
-    public virtual Category Category { get; set; }
-
-    public virtual Supplier Supplier { get; set; }
 }

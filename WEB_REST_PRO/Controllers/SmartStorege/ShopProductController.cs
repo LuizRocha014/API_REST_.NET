@@ -18,11 +18,26 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
 
         [Route("GetAll")]
         [HttpGet]
-        public IActionResult getAllShopProduct(Guid userId, DateTime? ultDate)
+        public IActionResult getAllShopProduct(DateTime? ultDate)
         {
             try
             {
-                var retorno = _shopProductRepository.GetAll(userId, ultDate);
+                var retorno = _shopProductRepository.GetAll(ultDate);
+                return new JsonResult(retorno);
+            }
+            catch (Exception)
+            {
+
+                return new JsonResult(false);
+            }
+        }
+        [Route("GetAllId")]
+        [HttpGet]
+        public IActionResult GetAllId(Guid userId, DateTime? ultDate)
+        {
+            try
+            {
+                var retorno = _shopProductRepository.GetAllId(userId, ultDate);
                 return new JsonResult(retorno);
             }
             catch (Exception)

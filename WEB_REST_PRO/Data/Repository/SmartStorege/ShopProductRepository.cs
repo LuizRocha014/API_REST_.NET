@@ -13,7 +13,19 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
         }
 
 
-        public List<ShopProduct> GetAll(Guid userId, DateTime? ultDate)
+        public List<ShopProduct> GetAll(DateTime? ultDate)
+        {
+            try
+            {
+                var list = _dataContext.ShopProduct.Where(x => ultDate == null ? (x.Active == true) : (x.UpdatedAt >= ultDate)).ToList();
+                return list;
+            }
+            catch (Exception)
+            {
+
+                return new List<ShopProduct>();
+            }
+        } public List<ShopProduct> GetAllId(Guid userId, DateTime? ultDate)
         {
             try
             {

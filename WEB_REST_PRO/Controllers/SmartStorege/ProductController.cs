@@ -32,13 +32,13 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
 
         [Route("PostAll")]
         [HttpPost]
-        public IActionResult PostAll([FromBody] List<Product> listCustomer)
+        public IActionResult PostAll([FromBody] Product Product)
         {
             try
             {
 
 
-                return new JsonResult(_productRepository.AddShopProduct(listCustomer));
+                return new JsonResult(_productRepository.AddShopProduct(Product));
             }
             catch (Exception)
             {
