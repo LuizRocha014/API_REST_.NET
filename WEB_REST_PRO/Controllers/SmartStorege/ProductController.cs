@@ -32,7 +32,7 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
 
         [Route("PostAll")]
         [HttpPost]
-        public IActionResult PostAll([FromBody] List<Product> listCustomer)
+        public IActionResult PostAll([FromBody] Product listCustomer)
         {
             try
             {
