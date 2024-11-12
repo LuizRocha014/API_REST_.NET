@@ -25,22 +25,18 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
             }
         }
 
-        public List<string> AddShopProduct(List<Product> listCustomer)
+        public bool AddShopProduct(Product listCustomer)
         {
-            List<string> listRetorno = listCustomer.Select(obj => obj.Id.ToString()).ToList();
             try
             {
-                foreach (var item in listCustomer)
-                {
-                    var exist = _dataContext.Set<Product>().AsNoTracking().FirstOrDefault(x => x.Id == item.Id) != null ? true : false;
-                    if (exist)
+                var exist = _dataContext.Product.FirstOrDefault(x => x.Id == listCustomer.Id) != null ? false : true;
+                    if (!exist)
                     {
                         try
                         {
-                            item.UpdatedAt = DateTime.Now;
-                            _dataContext.Update(item);
+                        listCustomer.UpdatedAt = DateTime.Now;
+                            _dataContext.Update(listCustomer);
                             _dataContext.SaveChanges();
-                            listRetorno.Remove(item.Id.ToString());
                         }
                         catch (Exception)
                         {
@@ -51,19 +47,17 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
                     }
                     else
                     {
-                        item.UpdatedAt = DateTime.Now;
-                        _dataContext.Add(item);
-                        _dataContext.SaveChanges();
-                        listRetorno.Remove(item.Id.ToString());
+                    listCustomer.UpdatedAt = DateTime.Now;
+                        _dataContext.Add(listCustomer);
+                        _dataContext.SaveChanges(); 
                     }
-                }
 
-                return listRetorno;
+                return true;
             }
             catch (Exception)
             {
 
-                return listRetorno;
+                return false;
             }
         }
     }

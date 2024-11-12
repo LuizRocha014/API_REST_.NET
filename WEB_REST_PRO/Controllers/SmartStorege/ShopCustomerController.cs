@@ -16,11 +16,26 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
         }
         [Route("GetAll")]
         [HttpGet]
-        public IActionResult GetAllCategory(Guid ShopId, DateTime? ultDate)
+        public IActionResult GetAll(DateTime? ultDate)
         {
             try
             {
-                return new JsonResult(_shopCostumerRepository.GetAll(ShopId, ultDate));
+                return new JsonResult(_shopCostumerRepository.GetAll( ultDate));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [Route("GetAllShopId")]
+        [HttpGet]
+        public IActionResult GetAllShopId(Guid ShopId, DateTime? ultDate)
+        {
+            try
+            {
+                return new JsonResult(_shopCostumerRepository.GetAllId(ShopId, ultDate));
             }
             catch (Exception)
             {
@@ -39,10 +54,10 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
 
                 return new JsonResult(_shopCostumerRepository.addShopCostumer(listCustomer));
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                return new JsonResult(e);
             }
         }
 

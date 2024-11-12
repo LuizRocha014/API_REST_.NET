@@ -1,8 +1,11 @@
-﻿namespace WEB_REST_PRO.Data.Interface.SmartStorege
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace WEB_REST_PRO.Data.Interface.SmartStorege
 {
     public interface IShopProductRepository : IBaseRepository
     {
-        List<ShopProduct> GetAll(Guid userId, DateTime? ultDate);
-        public List<string> AddShopProduct(List<ShopProduct> listCustomer);
+        List<ShopProduct> GetAll(DateTime? ultDate);
+        List<ShopProduct> GetAllId(Guid userId, DateTime? ultDate);
+        public bool AddShopProduct([FromBody] ShopProduct shopProduct);
     }
 }

@@ -6,8 +6,9 @@ namespace WEB_REST_PRO.Data.Interface.SmartStorege
 {
     public interface IShopCostumerRepository : IBaseRepository
     {
-        public List<ShopCustomer> GetAll(Guid ShopId, DateTime? ultDate);
+        public List<ShopCustomer> GetAll(DateTime? ultDate);
         public List<string> addShopCostumer(List<ShopCustomer> listCustomer);
+        public List<ShopCustomer> GetAllId(Guid ShopId, DateTime? ultDate);
 
     }
 

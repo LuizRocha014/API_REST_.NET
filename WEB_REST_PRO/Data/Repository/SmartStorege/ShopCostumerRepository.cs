@@ -60,7 +60,23 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
                 return listRetorno;
             }
         }
-        public List<ShopCustomer> GetAll(Guid ShopId, DateTime? ultDate)
+        public List<ShopCustomer> GetAll(DateTime? ultDate)
+        {
+            try
+            {
+                var listShopCust = (from sp in _dataContext.Set<ShopCustomer>()
+                                    join c in _dataContext.Set<Customer>() on sp.CustomerId equals c.Id
+                                    where ultDate == null ? (sp.Active == true && c.Active == true) : (sp.UpdatedAt >= ultDate)
+                                    select sp).ToList();
+                return listShopCust;
+            }
+            catch (Exception)
+            {
+
+                return new List<ShopCustomer>();
+            }
+        } 
+        public List<ShopCustomer> GetAllId(Guid ShopId, DateTime? ultDate)
         {
             try
             {

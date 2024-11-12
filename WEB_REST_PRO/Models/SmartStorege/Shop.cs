@@ -10,11 +10,8 @@ public class Shop : Core
     public Guid Id { get; set; }
 
     public string Name { get; set; }
-
-    [ForeignKey("Company")]
     public Guid CompanyId { get; set; }
 
     public string Location { get; set; }
 
-    public virtual Company? Company { get; set; }
 }

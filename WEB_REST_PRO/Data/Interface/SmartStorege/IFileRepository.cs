@@ -2,11 +2,10 @@
 using WEB_REST_PRO.Models.SmartStorege;
 namespace WEB_REST_PRO.Data.Interface.SmartStorege
 {
-	public interface ISaleRepository : IBaseRepository
+	public interface IFileRepository : IBaseRepository
 	{
-        public List<string> AddShopProduct(List<Sale> listCustomer);
-
-        public List<Sale> GetAllPermission(DateTime? ultimaAtt);
+        public List<File>? GetAllCategory(DateTime? ultDate);
+        public List<string> Add(List<File> listCustomer);
     }
 }
 
