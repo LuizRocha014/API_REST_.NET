@@ -54,10 +54,10 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
 
                 return new JsonResult(_shopCostumerRepository.addShopCostumer(listCustomer));
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                return new JsonResult(e);
             }
         }
 

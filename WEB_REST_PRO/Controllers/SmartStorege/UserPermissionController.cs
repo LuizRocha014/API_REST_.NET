@@ -42,5 +42,20 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
             }
 
         }
+
+        [HttpPost]
+        [Route("PostAll")]
+        public IActionResult PostAll([FromBody] List<UserPermission> list)
+        {
+            try
+            {
+                return new JsonResult(_userPermissionRepository.AddShopProduct(list));
+            }
+            catch (Exception)
+            {
+                return new JsonResult(null);
+            }
+
+        }
     }
 }

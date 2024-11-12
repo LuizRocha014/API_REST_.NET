@@ -5,11 +5,11 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class RolePermission
+    public class RolePermissionController
     {
         private IRolePermissionRepository _rolePermissionRepository;
 
-        public RolePermission(IRolePermissionRepository rolePermissionRepositor)
+        public RolePermissionController(IRolePermissionRepository rolePermissionRepositor)
         {
             _rolePermissionRepository = rolePermissionRepositor;
         }

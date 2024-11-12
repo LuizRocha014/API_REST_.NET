@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WEB_REST_PRO.Data.Context;
 using WEB_REST_PRO.Data.Interface.SmartStorege;
 
@@ -25,7 +26,8 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
 
                 return new List<ShopProduct>();
             }
-        } public List<ShopProduct> GetAllId(Guid userId, DateTime? ultDate)
+        }
+        public List<ShopProduct> GetAllId(Guid userId, DateTime? ultDate)
         {
             try
             {
@@ -39,45 +41,48 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
             }
         }
 
-        public List<string> AddShopProduct(List<ShopProduct> listCustomer)
+        public bool AddShopProduct([FromBody] ShopProduct shopProduct)
         {
-            List<string> listRetorno = listCustomer.Select(obj => obj.Id.ToString()).ToList();
+
             try
             {
-                foreach (var item in listCustomer)
+                var exist = _dataContext.Set<ShopProduct>().AsNoTracking().FirstOrDefault(x => x.Id == shopProduct.Id) != null ? true : false;
+                if (exist)
                 {
-                    var exist = _dataContext.Set<ShopProduct>().AsNoTracking().FirstOrDefault(x => x.Id == item.Id) != null ? true : false;
-                    if (exist)
+                    try
                     {
-                        try
-                        {
-                            item.UpdatedAt = DateTime.Now;
-                            _dataContext.Update(item);
-                            _dataContext.SaveChanges();
-                            listRetorno.Remove(item.Id.ToString());
-                        }
-                        catch (Exception)
-                        {
-
-
-                        }
+                        shopProduct.UpdatedAt = DateTime.Now;
+                        _dataContext.Update(shopProduct);
+                        _dataContext.SaveChanges();
+                    }
+                    catch (Exception)
+                    {
+                        return false;
 
                     }
-                    else
+
+                }
+                else
+                {
+                    try
                     {
-                        item.UpdatedAt = DateTime.Now;
-                        _dataContext.Add(item);
+                        shopProduct.UpdatedAt = DateTime.Now;
+                        _dataContext.Add(shopProduct);
                         _dataContext.SaveChanges();
-                        listRetorno.Remove(item.Id.ToString());
+                    }
+                    catch (Exception)
+                    {
+
+                        return false;
                     }
                 }
 
-                return listRetorno;
+                return true;
             }
             catch (Exception)
             {
 
-                return listRetorno;
+                return false;
             }
         }
     }

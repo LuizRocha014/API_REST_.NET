@@ -13,6 +13,10 @@ public class Customer : Core
     public string? Neighborhood { get; set; }
     public string? ZipCode { get; set; }
     public string? Phone { get; set; }
+    public string? TelefoneResponsavel { get; set; }
     public string? Reference { get; set; }
+    public string? Responsavel { get; set; }
+    public string? Seguimento { get; set; }
+
 }
 

@@ -7,21 +7,13 @@ public class ShopProduct : Core
 {
   
 
-    [ForeignKey("Product")]
     public Guid ProductId { get; set; }
 
-    [ForeignKey("Shop")]
     public Guid ShopId { get; set; }
-    [ForeignKey("User")]
     public Guid UserId { get; set; }
 
     public int TotalAmount { get; set; }
 
     public double SalePrice { get; set; }
-
-    public virtual Product Product { get; set; }
-
-    public virtual Shop Shop { get; set; }
-    public virtual User User { get; set; }
 
 }
