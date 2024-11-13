@@ -280,10 +280,6 @@ namespace WEB_REST_PRO.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FileId");
-
-                    b.HasIndex("ProductId");
-
                     b.ToTable("ProductFile");
                 });
 
@@ -711,25 +707,6 @@ namespace WEB_REST_PRO.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("User");
-                });
-
-            modelBuilder.Entity("ProductFile", b =>
-                {
-                    b.HasOne("File", "File")
-                        .WithMany()
-                        .HasForeignKey("FileId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("File");
-
-                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("RolePermission", b =>
