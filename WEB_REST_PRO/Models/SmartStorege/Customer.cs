@@ -17,6 +17,7 @@ public class Customer : Core
     public string? Reference { get; set; }
     public string? Responsavel { get; set; }
     public string? Seguimento { get; set; }
+    public Guid ShopId { get; set; }
 
 }
 

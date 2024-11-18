@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WEB_REST_PRO.Data.Interface.SmartStorege;
 using WEB_REST_PRO.Data.Repository.SmartStorege;
+using WEB_REST_PRO.Models.SmartStorege;
 
 namespace WEB_REST_PRO.Controllers.SmartStorege
 {
@@ -51,6 +52,38 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
             try
             {
                 return new JsonResult(_custumerRepository.GetAll(ultDate));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [HttpPost]
+        [Route("AddCostumerShop")]
+        public IActionResult AddUserShop([FromBody] Customer user)
+        {
+            try
+            {
+                return new JsonResult(_custumerRepository.AddCustomerShop(user));
+            }
+            catch (Exception e)
+            {
+                return new JsonResult(e);
+
+            }
+        }
+
+        [Route("GetCustomerById")]
+        [HttpGet]
+        public IActionResult GetById(Guid customerId)
+        {
+            try
+            {
+
+                var retorno = _custumerRepository.GetById(customerId);
+                return new JsonResult(retorno);
             }
             catch (Exception)
             {

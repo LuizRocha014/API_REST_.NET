@@ -10,7 +10,8 @@ public class Product : Core
 
     public string Sku { get; set; }
     public string? CodProduct { get; set; }
-    public Guid Storedlocation { get; set; }
+    public Guid? Storedlocation { get; set; }
+    public Guid ShopId { get; set; }
 
     public string Brand { get; set; }
 

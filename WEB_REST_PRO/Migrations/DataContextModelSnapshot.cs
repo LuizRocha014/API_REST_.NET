@@ -121,6 +121,9 @@ namespace WEB_REST_PRO.Migrations
                     b.Property<string>("Seguimento")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("ShopId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("TelefoneResponsavel")
                         .HasColumnType("nvarchar(max)");
 
@@ -232,11 +235,14 @@ namespace WEB_REST_PRO.Migrations
                     b.Property<int?>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<Guid>("ShopId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("Sku")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("Storedlocation")
+                    b.Property<Guid?>("Storedlocation")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("SupplierId")

@@ -60,9 +60,8 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
         {
             try
             {
-                var listShopCust = (from sp in _dataContext.Set<ShopCustomer>()
-                                    join c in _dataContext.Set<Customer>() on sp.CustomerId equals c.Id
-                                    where ultDate == null ? ( sp.Active == true && c.Active == true) : (sp.UpdatedAt >= ultDate)
+                var listShopCust = (from c in _dataContext.Set<Customer>()
+                                    where ultDate == null ? (c.Active == true) : (c.UpdatedAt >= ultDate)
                                     select c).ToList();
                 return listShopCust;
             }
@@ -86,6 +85,43 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
             {
 
                 return new List<Customer>();
+            }
+        }
+
+        public bool AddCustomerShop(Customer? user)
+        {
+            try
+            {
+                if (user != null)
+                {
+                    var userExist = _dataContext.Customer.FirstOrDefault(x => x.Id == user.Id);
+                    if (userExist == null)
+                    {
+                        _dataContext.Add(user);
+                        _dataContext.SaveChanges();
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+
+                return false;
+            }
+        }
+
+        public Customer? GetById(Guid customerId)
+        {
+            try
+            {
+                
+                return _dataContext.Set<Customer>().AsNoTracking().FirstOrDefault(x=>x.Id == customerId);
+            }
+            catch (Exception)
+            {
+
+                return null;
             }
         }
     }

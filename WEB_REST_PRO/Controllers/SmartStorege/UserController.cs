@@ -30,18 +30,21 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
 
             }
         }
+
         [HttpPost]
-        public IActionResult addLogin([FromBody]User user)
+        public IActionResult AddUser([FromBody]User user)
         {
             try
             {
                 return new JsonResult(_userRepository.addLogin(user));
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return new JsonResult(null);
+                return new JsonResult(e);
 
             }
         }
+
+       
     }
 }

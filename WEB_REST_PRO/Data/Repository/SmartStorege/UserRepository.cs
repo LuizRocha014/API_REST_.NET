@@ -27,7 +27,7 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
 
                 if (retorno != null)
                 {
-                  var listAcessos =  _dataContext.UserPermission.Include(x => x.Permission).Where(e => e.UsuarioId == retorno.Id);
+                    var listAcessos = _dataContext.UserPermission.Include(x => x.Permission).Where(e => e.UsuarioId == retorno.Id);
                     if (listAcessos.Any(x => x.Permission.Name.Contains("AppPermission")))
                         return retorno;
                     else
@@ -67,6 +67,8 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
                 return false;
             }
         }
+
+       
 
         public List<User> GetAllPermission(DateTime? ultimaAtt)
         {

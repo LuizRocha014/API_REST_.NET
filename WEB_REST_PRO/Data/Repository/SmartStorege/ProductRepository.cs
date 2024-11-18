@@ -2,6 +2,7 @@
 using System;
 using WEB_REST_PRO.Data.Context;
 using WEB_REST_PRO.Data.Interface.SmartStorege;
+using WEB_REST_PRO.Models.SmartStorege;
 
 namespace WEB_REST_PRO.Data.Repository.SmartStorege
 {
@@ -58,6 +59,41 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
             {
 
                 return false;
+            }
+        }
+
+        public bool AddProductShop(Product? user)
+        {
+            try
+            {
+                if (user != null)
+                {
+                    var userExist = _dataContext.Set<Product>().AsNoTracking().FirstOrDefault(x => x.Id == user.Id);
+                    if (userExist == null)
+                    {
+                        _dataContext.Add(user);
+                        _dataContext.SaveChanges();
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (Exception e)
+            {
+
+                return false;
+            }
+        }
+        public Product? GetById(Guid productId)
+        {
+            try
+            {
+                var list = _dataContext.Set<Product>().AsNoTracking().FirstOrDefault(x => x.Id == productId);
+                return list;
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
     }

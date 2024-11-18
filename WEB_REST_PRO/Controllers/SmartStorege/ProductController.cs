@@ -11,12 +11,12 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
         private IProductRepository _productRepository;
         public ProductController(IProductRepository productRepository)
         {
-                _productRepository = productRepository;
+            _productRepository = productRepository;
         }
 
         [Route("GetAll")]
         [HttpGet]
-        public IActionResult getAllShopProduct( DateTime? ultDate)
+        public IActionResult getAllShopProduct(DateTime? ultDate)
         {
             try
             {
@@ -38,6 +38,40 @@ namespace WEB_REST_PRO.Controllers.SmartStorege
             {
 
                 var retorno = _productRepository.AddShopProduct(listCustomer);
+                return new JsonResult(retorno);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+        [Route("AddProductShop")]
+        [HttpPost]
+        public IActionResult AddProductShop([FromBody] Product product)
+        {
+            try
+            {
+
+                var retorno = _productRepository.AddProductShop(product);
+                return new JsonResult(retorno);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        [Route("GetProductById")]
+        [HttpGet]
+        public IActionResult AddProductShop(Guid productId)
+        {
+            try
+            {
+
+                var retorno = _productRepository.GetById(productId);
                 return new JsonResult(retorno);
             }
             catch (Exception)

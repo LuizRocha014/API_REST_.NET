@@ -5,6 +5,8 @@ namespace WEB_REST_PRO.Data.Interface.SmartStorege
 	{
         public List<Product> GetAll(DateTime? ultDate);
         public bool AddShopProduct(Product listCustomer);
+        public bool AddProductShop(Product? user);
+        public Product? GetById(Guid productId);
 
     }
 }
