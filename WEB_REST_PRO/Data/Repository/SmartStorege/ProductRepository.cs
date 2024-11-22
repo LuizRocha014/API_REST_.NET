@@ -6,11 +6,11 @@ using WEB_REST_PRO.Models.SmartStorege;
 
 namespace WEB_REST_PRO.Data.Repository.SmartStorege
 {
-	public class ProductRepository : BaseRepository, IProductRepository
+    public class ProductRepository : BaseRepository, IProductRepository
     {
         private readonly DataContext _dataContext;
         public ProductRepository(DataContext context) : base(context)
-		{
+        {
             _dataContext = context;
         }
         public List<Product> GetAll(DateTime? ultDate)
@@ -21,7 +21,7 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
                 return list;
             }
             catch (Exception)
-            { 
+            {
                 return new List<Product>();
             }
         }
@@ -31,27 +31,27 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
             try
             {
                 var exist = _dataContext.Product.FirstOrDefault(x => x.Id == listCustomer.Id) != null ? false : true;
-                    if (!exist)
+                if (!exist)
+                {
+                    try
                     {
-                        try
-                        {
                         listCustomer.UpdatedAt = DateTime.Now;
-                            _dataContext.Update(listCustomer);
-                            _dataContext.SaveChanges();
-                        }
-                        catch (Exception)
-                        {
-
-
-                        }
-
+                        _dataContext.Update(listCustomer);
+                        _dataContext.SaveChanges();
                     }
-                    else
+                    catch (Exception)
                     {
-                    listCustomer.UpdatedAt = DateTime.Now;
-                        _dataContext.Add(listCustomer);
-                        _dataContext.SaveChanges(); 
+
+
                     }
+
+                }
+                else
+                {
+                    listCustomer.UpdatedAt = DateTime.Now;
+                    _dataContext.Add(listCustomer);
+                    _dataContext.SaveChanges();
+                }
 
                 return true;
             }
@@ -72,11 +72,15 @@ namespace WEB_REST_PRO.Data.Repository.SmartStorege
                     if (userExist == null)
                     {
                         _dataContext.Add(user);
-                        _dataContext.SaveChanges();
                         return true;
                     }
+                    else
+                    {
+                        _dataContext.Update(user);
+                    }
+                    _dataContext.SaveChanges();
                 }
-                return false;
+               return true;
             }
             catch (Exception e)
             {
