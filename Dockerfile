@@ -7,9 +7,15 @@ EXPOSE 443
 # Etapa de build
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY WEB_REST_PRO/WEB_REST_PRO.csproj WEB_REST_PRO/
-RUN dotnet restore WEB_REST_PRO/WEB_REST_PRO.csproj
+
+# Copia o .csproj e restaura dependências
+COPY WEB_REST_PRO/WEB_REST_PRO.csproj ./WEB_REST_PRO/
+RUN dotnet restore ./WEB_REST_PRO/WEB_REST_PRO.csproj
+
+# Copia todo o código
 COPY . .
+
+# Define o diretório de trabalho correto
 WORKDIR /src/WEB_REST_PRO
 RUN dotnet build WEB_REST_PRO.csproj -c Release -o /app/build
 
