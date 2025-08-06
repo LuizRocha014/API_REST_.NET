@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Quartz;
 using WEB_REST_PRO.Data.Context;
 using WEB_REST_PRO.Data.Interface;
 using WEB_REST_PRO.Data.Interface.SmartStorege;
@@ -48,6 +49,26 @@ builder.Services.AddScoped<IShopProductRepository, ShopProductRepository>();
 
 
 builder.Services.AddControllers();
+
+
+// QUARTZ - Configurando Job e Trigger
+builder.Services.AddQuartz(q =>
+{
+    // Define o Job
+    var jobKey = new JobKey("HelloJob");
+    q.AddJob<HelloJob>(opts => opts.WithIdentity(jobKey));
+
+// Define o agendamento (diariamente às 03:00)
+q.AddTrigger(opts => opts
+    .ForJob(jobKey)
+    .ForJob(jobKey)
+    .WithIdentity("HelloJobTrigger")
+    .WithSchedule(CronScheduleBuilder.CronSchedule("0 0/1 * * * ?"))// 03:00
+    );
+});
+
+// QUARTZ - Serviço que executa os jobs
+builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -66,3 +87,13 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+
+
+public class HelloJob : IJob
+{
+    public async Task Execute(IJobExecutionContext context)
+    {
+        await Console.Out.WriteLineAsync("Testandooooooooo");
+    }
+}
