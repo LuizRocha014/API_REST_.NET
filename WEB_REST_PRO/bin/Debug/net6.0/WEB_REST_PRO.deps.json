@@ -8,14 +8,20 @@
     ".NETCoreApp,Version=v6.0": {
       "WEB_REST_PRO/1.0.0": {
         "dependencies": {
+          "BCrypt.Net-Next": "4.0.3",
           "LinqKit.Microsoft.EntityFrameworkCore": "7.1.4",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.21",
           "Microsoft.AspNetCore.Mvc.Core": "2.2.5",
           "Microsoft.EntityFrameworkCore.Design": "7.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.9",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.6",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.9",
           "Pomelo.EntityFrameworkCore.MySql": "7.0.0",
-          "Swashbuckle.AspNetCore": "6.2.3"
+          "Quartz": "3.15.0",
+          "Quartz.AspNetCore": "3.15.0",
+          "Quartz.Extensions.DependencyInjection": "3.15.0",
+          "Swashbuckle.AspNetCore": "6.2.3",
+          "System.IdentityModel.Tokens.Jwt": "6.32.1"
         },
         "runtime": {
           "WEB_REST_PRO.dll": {}
@@ -52,6 +58,14 @@
           "lib/netstandard2.0/Azure.Identity.dll": {
             "assemblyVersion": "1.6.0.0",
             "fileVersion": "1.600.22.20503"
+          }
+        }
+      },
+      "BCrypt.Net-Next/4.0.3": {
+        "runtime": {
+          "lib/net6.0/BCrypt.Net-Next.dll": {
+            "assemblyVersion": "4.0.3.0",
+            "fileVersion": "4.0.3.0"
           }
         }
       },
@@ -95,6 +109,17 @@
           "Microsoft.AspNetCore.Authentication.Abstractions": "2.2.0",
           "Microsoft.AspNetCore.Http": "2.2.0",
           "Microsoft.AspNetCore.Http.Extensions": "2.2.0"
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.21": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.21.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "assemblyVersion": "6.0.21.0",
+            "fileVersion": "6.0.2123.36438"
+          }
         }
       },
       "Microsoft.AspNetCore.Authorization/2.2.0": {
@@ -214,7 +239,7 @@
           "Azure.Identity": "1.6.0",
           "Microsoft.Data.SqlClient.SNI.runtime": "5.0.1",
           "Microsoft.Identity.Client": "4.45.0",
-          "Microsoft.IdentityModel.JsonWebTokens": "6.21.0",
+          "Microsoft.IdentityModel.JsonWebTokens": "6.32.1",
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.21.0",
           "Microsoft.SqlServer.Server": "1.0.0",
           "Microsoft.Win32.Registry": "5.0.0",
@@ -496,7 +521,7 @@
       },
       "Microsoft.Identity.Client/4.45.0": {
         "dependencies": {
-          "Microsoft.IdentityModel.Abstractions": "6.21.0"
+          "Microsoft.IdentityModel.Abstractions": "6.32.1"
         },
         "runtime": {
           "lib/netcoreapp2.1/Microsoft.Identity.Client.dll": {
@@ -517,40 +542,43 @@
           }
         }
       },
-      "Microsoft.IdentityModel.Abstractions/6.21.0": {
+      "Microsoft.IdentityModel.Abstractions/6.32.1": {
         "runtime": {
           "lib/net6.0/Microsoft.IdentityModel.Abstractions.dll": {
-            "assemblyVersion": "6.21.0.0",
-            "fileVersion": "6.21.0.30701"
+            "assemblyVersion": "6.32.1.0",
+            "fileVersion": "6.32.1.40728"
           }
         }
       },
-      "Microsoft.IdentityModel.JsonWebTokens/6.21.0": {
+      "Microsoft.IdentityModel.JsonWebTokens/6.32.1": {
         "dependencies": {
-          "Microsoft.IdentityModel.Tokens": "6.21.0"
+          "Microsoft.IdentityModel.Tokens": "6.32.1",
+          "System.Text.Encoding": "4.3.0",
+          "System.Text.Encodings.Web": "7.0.0",
+          "System.Text.Json": "7.0.0"
         },
         "runtime": {
           "lib/net6.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
-            "assemblyVersion": "6.21.0.0",
-            "fileVersion": "6.21.0.30701"
+            "assemblyVersion": "6.32.1.0",
+            "fileVersion": "6.32.1.40728"
           }
         }
       },
-      "Microsoft.IdentityModel.Logging/6.21.0": {
+      "Microsoft.IdentityModel.Logging/6.32.1": {
         "dependencies": {
-          "Microsoft.IdentityModel.Abstractions": "6.21.0"
+          "Microsoft.IdentityModel.Abstractions": "6.32.1"
         },
         "runtime": {
           "lib/net6.0/Microsoft.IdentityModel.Logging.dll": {
-            "assemblyVersion": "6.21.0.0",
-            "fileVersion": "6.21.0.30701"
+            "assemblyVersion": "6.32.1.0",
+            "fileVersion": "6.32.1.40728"
           }
         }
       },
       "Microsoft.IdentityModel.Protocols/6.21.0": {
         "dependencies": {
-          "Microsoft.IdentityModel.Logging": "6.21.0",
-          "Microsoft.IdentityModel.Tokens": "6.21.0"
+          "Microsoft.IdentityModel.Logging": "6.32.1",
+          "Microsoft.IdentityModel.Tokens": "6.32.1"
         },
         "runtime": {
           "lib/net6.0/Microsoft.IdentityModel.Protocols.dll": {
@@ -562,7 +590,7 @@
       "Microsoft.IdentityModel.Protocols.OpenIdConnect/6.21.0": {
         "dependencies": {
           "Microsoft.IdentityModel.Protocols": "6.21.0",
-          "System.IdentityModel.Tokens.Jwt": "6.21.0"
+          "System.IdentityModel.Tokens.Jwt": "6.32.1"
         },
         "runtime": {
           "lib/net6.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll": {
@@ -571,16 +599,16 @@
           }
         }
       },
-      "Microsoft.IdentityModel.Tokens/6.21.0": {
+      "Microsoft.IdentityModel.Tokens/6.32.1": {
         "dependencies": {
           "Microsoft.CSharp": "4.5.0",
-          "Microsoft.IdentityModel.Logging": "6.21.0",
+          "Microsoft.IdentityModel.Logging": "6.32.1",
           "System.Security.Cryptography.Cng": "5.0.0"
         },
         "runtime": {
           "lib/net6.0/Microsoft.IdentityModel.Tokens.dll": {
-            "assemblyVersion": "6.21.0.0",
-            "fileVersion": "6.21.0.30701"
+            "assemblyVersion": "6.32.1.0",
+            "fileVersion": "6.32.1.40728"
           }
         }
       },
@@ -716,6 +744,55 @@
           "lib/net6.0/Pomelo.EntityFrameworkCore.MySql.dll": {
             "assemblyVersion": "7.0.0.0",
             "fileVersion": "7.0.0.0"
+          }
+        }
+      },
+      "Quartz/3.15.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "7.0.0",
+          "System.Diagnostics.DiagnosticSource": "5.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Quartz.dll": {
+            "assemblyVersion": "3.15.0.0",
+            "fileVersion": "3.15.0.0"
+          }
+        }
+      },
+      "Quartz.AspNetCore/3.15.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "7.0.0",
+          "Quartz.Extensions.Hosting": "3.15.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Quartz.AspNetCore.dll": {
+            "assemblyVersion": "3.15.0.0",
+            "fileVersion": "3.15.0.0"
+          }
+        }
+      },
+      "Quartz.Extensions.DependencyInjection/3.15.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "7.0.0",
+          "Microsoft.Extensions.Options": "7.0.0",
+          "Quartz": "3.15.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Quartz.Extensions.DependencyInjection.dll": {
+            "assemblyVersion": "3.15.0.0",
+            "fileVersion": "3.15.0.0"
+          }
+        }
+      },
+      "Quartz.Extensions.Hosting/3.15.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Hosting.Abstractions": "2.2.0",
+          "Quartz.Extensions.DependencyInjection": "3.15.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Quartz.Extensions.Hosting.dll": {
+            "assemblyVersion": "3.15.0.0",
+            "fileVersion": "3.15.0.0"
           }
         }
       },
@@ -934,15 +1011,15 @@
           "System.Runtime.InteropServices": "4.3.0"
         }
       },
-      "System.IdentityModel.Tokens.Jwt/6.21.0": {
+      "System.IdentityModel.Tokens.Jwt/6.32.1": {
         "dependencies": {
-          "Microsoft.IdentityModel.JsonWebTokens": "6.21.0",
-          "Microsoft.IdentityModel.Tokens": "6.21.0"
+          "Microsoft.IdentityModel.JsonWebTokens": "6.32.1",
+          "Microsoft.IdentityModel.Tokens": "6.32.1"
         },
         "runtime": {
           "lib/net6.0/System.IdentityModel.Tokens.Jwt.dll": {
-            "assemblyVersion": "6.21.0.0",
-            "fileVersion": "6.21.0.30701"
+            "assemblyVersion": "6.32.1.0",
+            "fileVersion": "6.32.1.40728"
           }
         }
       },
@@ -1538,6 +1615,13 @@
       "path": "azure.identity/1.6.0",
       "hashPath": "azure.identity.1.6.0.nupkg.sha512"
     },
+    "BCrypt.Net-Next/4.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-W+U9WvmZQgi5cX6FS5GDtDoPzUCV4LkBLkywq/kRZhuDwcbavOzcDAr3LXJFqHUi952Yj3LEYoWW0jbEUQChsA==",
+      "path": "bcrypt.net-next/4.0.3",
+      "hashPath": "bcrypt.net-next.4.0.3.nupkg.sha512"
+    },
     "Humanizer.Core/2.14.1": {
       "type": "package",
       "serviceable": true,
@@ -1572,6 +1656,13 @@
       "sha512": "sha512-XlVJzJ5wPOYW+Y0J6Q/LVTEyfS4ssLXmt60T0SPP+D8abVhBTl+cgw2gDHlyKYIkcJg7btMVh383NDkMVqD/fg==",
       "path": "microsoft.aspnetcore.authentication.core/2.2.0",
       "hashPath": "microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/6.0.21": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EZfFWxMTd2Su5kfhaL5gIhEGANVcBV89qQX4nu/akSQNutW4AjfEujniQJTn/PXUaqOhWnykyKmly4p66CzbRA==",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/6.0.21",
+      "hashPath": "microsoft.aspnetcore.authentication.jwtbearer.6.0.21.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authorization/2.2.0": {
       "type": "package",
@@ -1874,26 +1965,26 @@
       "path": "microsoft.identity.client.extensions.msal/2.19.3",
       "hashPath": "microsoft.identity.client.extensions.msal.2.19.3.nupkg.sha512"
     },
-    "Microsoft.IdentityModel.Abstractions/6.21.0": {
+    "Microsoft.IdentityModel.Abstractions/6.32.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-XeE6LQtD719Qs2IG7HDi1TSw9LIkDbJ33xFiOBoHbApVw/8GpIBCbW+t7RwOjErUDyXZvjhZliwRkkLb8Z1uzg==",
-      "path": "microsoft.identitymodel.abstractions/6.21.0",
-      "hashPath": "microsoft.identitymodel.abstractions.6.21.0.nupkg.sha512"
+      "sha512": "sha512-S44xfpWeoPOQl2YHdp1TB0iYMXF0QHvHHFHsLere9j/0VL5/sTimy7KYjNI+46GXwOjRFvdtt+vIb36UjubEaA==",
+      "path": "microsoft.identitymodel.abstractions/6.32.1",
+      "hashPath": "microsoft.identitymodel.abstractions.6.32.1.nupkg.sha512"
     },
-    "Microsoft.IdentityModel.JsonWebTokens/6.21.0": {
+    "Microsoft.IdentityModel.JsonWebTokens/6.32.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-d3h1/BaMeylKTkdP6XwRCxuOoDJZ44V9xaXr6gl5QxmpnZGdoK3bySo3OQN8ehRLJHShb94ElLUvoXyglQtgAw==",
-      "path": "microsoft.identitymodel.jsonwebtokens/6.21.0",
-      "hashPath": "microsoft.identitymodel.jsonwebtokens.6.21.0.nupkg.sha512"
+      "sha512": "sha512-mfEKYEyemkzkLfjxyN5/d1owLpE8JArslFNeDMlNMX75p+U9E67rg5MGzOXHhrOICfDS+OKV2ChJmPPZ9o4HIA==",
+      "path": "microsoft.identitymodel.jsonwebtokens/6.32.1",
+      "hashPath": "microsoft.identitymodel.jsonwebtokens.6.32.1.nupkg.sha512"
     },
-    "Microsoft.IdentityModel.Logging/6.21.0": {
+    "Microsoft.IdentityModel.Logging/6.32.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tuEhHIQwvBEhMf8I50hy8FHmRSUkffDFP5EdLsSDV4qRcl2wvOPkQxYqEzWkh+ytW6sbdJGEXElGhmhDfAxAKg==",
-      "path": "microsoft.identitymodel.logging/6.21.0",
-      "hashPath": "microsoft.identitymodel.logging.6.21.0.nupkg.sha512"
+      "sha512": "sha512-g+VienLv1RjOfnxsDid3f6g5MTCRv/vDl3mofabc6m/uDzJpoAlXymo2kqpSAWMrGbqCQI01SvYDxHjmoo3h+Q==",
+      "path": "microsoft.identitymodel.logging/6.32.1",
+      "hashPath": "microsoft.identitymodel.logging.6.32.1.nupkg.sha512"
     },
     "Microsoft.IdentityModel.Protocols/6.21.0": {
       "type": "package",
@@ -1909,12 +2000,12 @@
       "path": "microsoft.identitymodel.protocols.openidconnect/6.21.0",
       "hashPath": "microsoft.identitymodel.protocols.openidconnect.6.21.0.nupkg.sha512"
     },
-    "Microsoft.IdentityModel.Tokens/6.21.0": {
+    "Microsoft.IdentityModel.Tokens/6.32.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-AAEHZvZyb597a+QJSmtxH3n2P1nIJGpZ4Q89GTenknRx6T6zyfzf592yW/jA5e8EHN4tNMjjXHQaYWEq5+L05w==",
-      "path": "microsoft.identitymodel.tokens/6.21.0",
-      "hashPath": "microsoft.identitymodel.tokens.6.21.0.nupkg.sha512"
+      "sha512": "sha512-8zGvRVWoVQSYg7qQj3zUslleZ/9lwDb6cWgDkIuqr0mCtXK/dr6IDgP7KpWJ5UhkoYYfLvwBl4GYEz4xMH524A==",
+      "path": "microsoft.identitymodel.tokens/6.32.1",
+      "hashPath": "microsoft.identitymodel.tokens.6.32.1.nupkg.sha512"
     },
     "Microsoft.Net.Http.Headers/2.2.0": {
       "type": "package",
@@ -2000,6 +2091,34 @@
       "path": "pomelo.entityframeworkcore.mysql/7.0.0",
       "hashPath": "pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512"
     },
+    "Quartz/3.15.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-seV76VI/OW9xdsEHJlfErciicfMmmU8lcGde2SJIYxVK+k4smAaBkm0FY8a4AiVb6MMpjTvH252438ol/OOUwQ==",
+      "path": "quartz/3.15.0",
+      "hashPath": "quartz.3.15.0.nupkg.sha512"
+    },
+    "Quartz.AspNetCore/3.15.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-98ENgYsCUJKmvexhNonDMdSKfHvQDpxsqwRXkdVUMuVbVZPfnDmvEyVXiO4uyXw940PPVvRrptZKZ2e9jALkVg==",
+      "path": "quartz.aspnetcore/3.15.0",
+      "hashPath": "quartz.aspnetcore.3.15.0.nupkg.sha512"
+    },
+    "Quartz.Extensions.DependencyInjection/3.15.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4g+QSG84cHlffLXoiHC7I/zkw223GUtdj0ZYrY+sxYq45Dd3Rti4uKIn0dWeotyEiJZNpn028bspf8njSJdnUg==",
+      "path": "quartz.extensions.dependencyinjection/3.15.0",
+      "hashPath": "quartz.extensions.dependencyinjection.3.15.0.nupkg.sha512"
+    },
+    "Quartz.Extensions.Hosting/3.15.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p9Fy67yAXxwjL/FxfVtmxwXbVtMOVZX+hNnONKT11adugK6kqgdfYvb0IP5pBBHW1rJSq88MpNkQ0EkyMCUhWg==",
+      "path": "quartz.extensions.hosting/3.15.0",
+      "hashPath": "quartz.extensions.hosting.3.15.0.nupkg.sha512"
+    },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
       "serviceable": true,
@@ -2045,7 +2164,7 @@
     "runtime.native.System.Security.Cryptography.Apple/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-DloMk88juo0OuOWr56QG7MNchmafTLYWvABy36izkrLI5VledI0rq28KGs1i9wbpeT9NPQrx/wTf8U2vazqQ3Q==",
+      "sha512": "sha512-jwjwlEL0Elv6gwoyaokRn12nv/JE+UW/DXJEbzhjCPvGbef36StnHKc9XaZD/rGWqYicrphZ7eumR/jdmNcjRg==",
       "path": "runtime.native.system.security.cryptography.apple/4.3.0",
       "hashPath": "runtime.native.system.security.cryptography.apple.4.3.0.nupkg.sha512"
     },
@@ -2066,14 +2185,14 @@
     "runtime.opensuse.42.1-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-KeLz4HClKf+nFS7p/6Fi/CqyLXh81FpiGzcmuS8DGi9lUqSnZ6Es23/gv2O+1XVGfrbNmviF7CckBpavkBoIFQ==",
+      "sha512": "sha512-G2+96gYRbzp1JZCID6B+u2XJ0bs2wCubd6rE3+Tj436dKfnciF7YgsLi2VvLeJq6kxYyU4IJrVrpCvC8Yf6bhA==",
       "path": "runtime.opensuse.42.1-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.opensuse.42.1-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
     },
     "runtime.osx.10.10-x64.runtime.native.System.Security.Cryptography.Apple/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-kVXCuMTrTlxq4XOOMAysuNwsXWpYeboGddNGpIgNSZmv1b6r/s/DPk0fYMB7Q5Qo4bY68o48jt4T4y5BVecbCQ==",
+      "sha512": "sha512-Kh9W4agE0r/hK8AX1LvyQI2NrKHBL8pO0gRoDTdDb0LL6Ta1Z2OtFx3lOaAE0ZpCUc/dt9Wzs3rA7a3IsKdOVA==",
       "path": "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple/4.3.0",
       "hashPath": "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple.4.3.0.nupkg.sha512"
     },
@@ -2087,14 +2206,14 @@
     "runtime.rhel.7-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nyFNiCk/r+VOiIqreLix8yN+q3Wga9+SE8BCgkf+2BwEKiNx6DyvFjCgkfV743/grxv8jHJ8gUK4XEQw7yzRYg==",
+      "sha512": "sha512-T5NvFgmHX0WH4c7lP72krsnk+IJI10vJf2j2twGE+5QBRA4RyRAgD+ZjEgdmpLOjW4B+nZGaadewTCUcR899OQ==",
       "path": "runtime.rhel.7-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.rhel.7-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
     },
     "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ytoewC6wGorL7KoCAvRfsgoJPJbNq+64k2SqW6JcOAebWsFUvCCYgfzQMrnpvPiEl4OrblUlhF2ji+Q1+SVLrQ==",
+      "sha512": "sha512-JGc0pAWRE8lB4Ucygk2pYSKbUPLlAIq6Bczf5/WF2D/VKJEPtYlVUMxk8fbl1zRfTWzSHi+VcFZlaPlWiNxeKg==",
       "path": "runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
     },
@@ -2252,12 +2371,12 @@
       "path": "system.globalization.extensions/4.3.0",
       "hashPath": "system.globalization.extensions.4.3.0.nupkg.sha512"
     },
-    "System.IdentityModel.Tokens.Jwt/6.21.0": {
+    "System.IdentityModel.Tokens.Jwt/6.32.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-JRD8AuypBE+2zYxT3dMJomQVsPYsCqlyZhWel3J1d5nzQokSRyTueF+Q4ID3Jcu6zSZKuzOdJ1MLTkbQsDqcvQ==",
-      "path": "system.identitymodel.tokens.jwt/6.21.0",
-      "hashPath": "system.identitymodel.tokens.jwt.6.21.0.nupkg.sha512"
+      "sha512": "sha512-m6kuL4jfpDHuWkUNS5peyO71nRH8nE2TsTC/n0Isajze4d86xTUmEJ3J0vzYdp4X3OQ72y9KXnQGtxgu9Axd0w==",
+      "path": "system.identitymodel.tokens.jwt/6.32.1",
+      "hashPath": "system.identitymodel.tokens.jwt.6.32.1.nupkg.sha512"
     },
     "System.IO/4.3.0": {
       "type": "package",
